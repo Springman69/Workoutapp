@@ -1,0 +1,50 @@
+﻿@page
+@model WebApp.Pages.ReadModel
+@{
+    ViewData["Title"] = "Read";
+}
+<table width="100%">
+    <tr>
+        <td width="15%">
+            <label asp-for="Workout.Name"></label>
+        </td>
+        <td>
+            <label asp-for="Workout.Name" style="font-size:large">@Model.Workout.Name</label>
+        </td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label asp-for="Workout.Type" style="font-size:large"></label>
+        </td>
+        <td>
+            <label asp-for="Workout.Type">@Model.Workout.Type</label>
+        </td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label asp-for="Workout.Description" style="font-size:large"></label>
+        </td>
+        <td>
+            <textarea asp-for="Workout.Description" cols="100" rows="5" readonly="readonly">@Model.Workout.Description</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td width="15%">
+
+            <label asp-for="Workout.Image" style="font-size:large"></label>
+        </td>
+        <td>
+            @if (Model.Workout.Image != null)
+            {
+                <img src="data:image/jpg;base64,@(Convert.ToBase64String(Model.Workout.Image))" width="750" />
+            }
+        </td>
+    </tr>
+    <tr>
+        <td width="15%">
+        </td>
+        <td style="text-align:right">
+            <a asp-page="/View" class="button button-green">Powrót</a>
+        </td>
+    </tr>
+</table>

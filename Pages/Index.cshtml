@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="container">
+    <div class="jumbotron text-center">
+        <h2>Plan treningowy</h2>
+        <p>Na tej stronie znajdziesz najlepsze ćwiczenia treningowe </p>
+        <p>Niezależnie od tego na jakim poziomie jesteś znajdziesz coś dla siebie </p>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h3>Przeglądaj Treningi</h3>
+            <p>Szukasz nowych wyzwań? Przeglądaj naszą obszerną bibliotekę treningów i znajdź swój kolejny trening!</p>
+            <p><a class="btn btn-success" href="/View" role="button">Przeglądaj Treningi &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h3>Stwórz Swój Własny</h3>
+            <p>Masz ulubioną rutynę treningową? Podziel się nią z naszą społecznością i pomóż innym osiągnąć ich cele fitness!</p>
+            <p><a class="btn btn-success" href="/Create" role="button">Stwórz Trening &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h3>Polityka prywatności</h3>
+            <p>Zapoznaj się z naszą polityką dotyczącą rozpowszechniania naszych treningów</p>
+            <p><a class="btn btn-success" href="/Privacy" role="button">Sprawdź teraz &raquo;</a></p>
+        </div>
+    </div>

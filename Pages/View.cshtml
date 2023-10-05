@@ -1,0 +1,55 @@
+﻿@page
+@model WebApp.Pages.ViewModel
+@{
+    ViewData["Title"] = "View";
+}
+
+<br>
+<table width="100%">
+    <tr>
+        <td>
+            <h3>Lista wpisów</h3>
+        </td>
+        <td align="right">
+            <a asp-page="/Create" class="button button-blue">Utwórz</a>
+        </td>
+    </tr>
+</table>
+<br>
+<form method="post">
+    @if (Model.WorkoutList.Count() > 0)
+    {
+        <table width="100%">
+            <tr style="font-size: 22px; background-color: cadetblue; border: 2px solid">
+                <th>
+                    <label asp-for="WorkoutList.FirstOrDefault().Name"></label>
+                </th>
+                <th>
+                    <label asp-for="WorkoutList.FirstOrDefault().Type"></label>
+                </th>
+                <th align="left">
+                </th>
+            </tr>
+            @foreach (var item in Model.WorkoutList)
+            {
+                <tr style="font-size: 18px; border: 2px solid">
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Type
+                    </td>
+                    <td align="right">
+                        <a asp-page="/Read" asp-route-id="@item.Id" class="button button-green">Otwórz</a>
+                        <a asp-page="/Update" asp-route-id="@item.Id" class="button button-yellow">Edytuj</a>
+                        <button type="submit" asp-page-handler="Delete" asp-route-id="@item.Id" class="button button-red">Usuń</button>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <p>Brak wpisów</p>
+    }
+</form>

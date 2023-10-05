@@ -1,0 +1,61 @@
+﻿@page
+@model WebApp.Pages.UpdateModel
+@{
+    ViewData["Title"] = "Update";
+}
+<br>
+<h3> Edytuj wpis </h3>
+<br />
+
+<form method="post" enctype="multipart/form-data">
+    <table width="100%">
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Name" style="font-size:large"></label>
+            </td>
+            <td>
+                <input asp-for="Workout.Name" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Type" style="font-size:large"></label>
+            </td>
+            <td>
+                <input asp-for="Workout.Type" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Description" style="font-size:large"></label>
+            </td>
+            <td>
+                <textarea asp-for="Workout.Description" cols="100" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%"></td>
+            <td>
+                @if (Model.Workout.Image != null)
+                {
+                    <img src="data:image/jpg;base64,@(Convert.ToBase64String(Model.Workout.Image))" width="750" />
+                }
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Image"></label>
+            </td>
+            <td>
+                <input type="file" asp-for="PhotoFile" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%"></td>
+            <td style="text-align:right">
+                <button type="submit" class="button button-blue">Zapisz</button>
+                <a asp-page="/View" class="button button-green">Powrót</a>
+            </td>
+        </tr>
+    </table>
+</form>

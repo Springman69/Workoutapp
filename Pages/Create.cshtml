@@ -1,0 +1,53 @@
+﻿@page
+@model WebApp.Pages.CreateModel
+@{
+    ViewData["Title"] = "Utwórz";
+}
+<br>
+<h3> Utwórz nowy plan treningowy </h3>
+<br>
+
+<form method="post" enctype="multipart/form-data">
+    <table width="100%">
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Name"></label>
+            </td>
+            <td>
+                <input asp-for="Workout.Name" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Type"></label>
+            </td>
+            <td>
+                <input asp-for="Workout.Type" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Description"></label>
+            </td>
+            <td>
+                <textarea asp-for="Workout.Description" cols="100" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+                <label asp-for="Workout.Image"></label>
+            </td>
+            <td>
+                <input type="file" asp-for="PhotoFile" />
+            </td>
+        </tr>
+        <tr>
+            <td width="15%">
+            </td>
+            <td style="text-align:right">
+                <button type="submit" class="button button-blue">Zapisz trening</button>
+                <a asp-page="/View" class="button button-green">Powrót do strony głównej</a>
+            </td>
+        </tr>
+    </table>
+</form>
